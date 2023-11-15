@@ -9,7 +9,7 @@ generator using by Javascript.
 
 ## Screenshots
 
-<a href="https://ibb.co/B6cGf5J"><img src="https://i.ibb.co/rpF3QRh/First-psrt.jpg" alt="First-psrt" border="0"></a>
+<a href="https://ibb.co/B6cGf5J"><img src="https://i.ibb.co/rpF3QRh/First-psrt.jpg" alt="First-part" border="0"></a>
 <a href="https://ibb.co/MprV8kB"><img src="https://i.ibb.co/K7dqNxK/Second-part.jpg" alt="Second-part" border="0"></a>
 <a href="https://ibb.co/5TmsjtP"><img src="https://i.ibb.co/2qxcMmT/web-screen-password-generator.jpg" alt="web-screen-password-generator" border="0"></a>
 <a href="https://ibb.co/nnDhHw1"><img src="https://i.ibb.co/qWRbtDg/request-Screen.jpg" alt="request-Screen" border="0"></a>

@@ -22,7 +22,7 @@ var specialCharacters = [
   '~',
   '-',
   '_',
-  '.'
+  '.',
 ];
 
 // Array of numeric characters to be included in password
@@ -55,7 +55,7 @@ var lowerCasedCharacters = [
   'w',
   'x',
   'y',
-  'z'
+  'z',
 ];
 
 // Array of uppercase characters to be included in password
@@ -85,25 +85,21 @@ var upperCasedCharacters = [
   'W',
   'X',
   'Y',
-  'Z'
+  'Z',
 ];
 
 // Function to prompt user for password options
-function getPasswordOptions() {
-  var length = parseInt(prompt('Enter the password length (between 8 and 128 characters):'));
+function getPasswordOptions () {
 
-  // Validate password length
-  if (isNaN(length) || length < 8 || length > 128) {
-    alert('Invalid password length. Please enter a number between 8 and 128.');
-    return;
-  }
+  var infPassword = prompt (
+    'Enter the password length (between 8 and 128 characters):'
+  );
+  var length = parseInt (infPassword); // password length (between 8 and 128 characters)
+  var includeSpecial = confirm ('Special character?');
+  var includeNumeric = confirm ('Numeric character?');
+  var includeLowercase = confirm ('Lowercase character?');
+  var includeUppercase = confirm ('Uppercase character?');
 
-  var includeSpecial = confirm('Include special characters?');
-  var includeNumeric = confirm('Include numeric characters?');
-  var includeLowercase = confirm('Include lowercase characters?');
-  var includeUppercase = confirm('Include uppercase characters?');
-  
-  // Create an options object and return it
   var passwordOptions = {
     length: length,
     includeSpecial: includeSpecial,
@@ -111,55 +107,68 @@ function getPasswordOptions() {
     includeLowercase: includeLowercase,
     includeUppercase: includeUppercase,
   };
-  
+
+ 
+
+  if (isNaN (length) || length < 8 || length > 128) {
+    alert ('Invalid password length. Please enter a number between 8 and 128.');
+    return null; // invalid return
+  }
   return passwordOptions;
-}
+  }
+
 
 // Function for getting a random element from an array
-function getRandom(arr) {
-  var randomIndex = Math.floor(Math.random() * arr.length);
-  return arr[randomIndex];
-}
-
+  function getRandom (arr) {
+    if (!Array.isArray (arr) || arr.length === 0) {
+      console.error ('Invalid input array in getRandom.');
+      return null;
+    }
+  var getRandomOpt= Math.random()
+  var index = getRandomOpt*arr.length
+  var roundedNumber = Math.floor(index)
+  return arr[roundedNumber]
+  }
 
 // Function to generate password with user input
 function generatePassword() {
   var options = getPasswordOptions();
-  if (!options) return; // Return if user cancels or enters invalid data
-  
-  var passwordCharacters = [];
-  
+  if (!options) return;
+
+  var passwordEls = [];
+
   if (options.includeSpecial) {
-    passwordCharacters = passwordCharacters.concat(specialCharacters);
+    passwordEls = passwordEls.concat (specialCharacters);
   }
   if (options.includeNumeric) {
-    passwordCharacters = passwordCharacters.concat(numericCharacters);
+    passwordEls = passwordEls.concat (numericCharacters);
   }
   if (options.includeLowercase) {
-    passwordCharacters = passwordCharacters.concat(lowerCasedCharacters);
+    passwordEls = passwordEls.concat (lowerCasedCharacters);
   }
   if (options.includeUppercase) {
-    passwordCharacters = passwordCharacters.concat(upperCasedCharacters);
+    passwordEls = passwordEls.concat (upperCasedCharacters);
   }
-  
+
   var password = '';
   for (var i = 0; i < options.length; i++) {
-    password += getRandom(passwordCharacters);
+    password += getRandom(passwordEls);
   }
-  
+
   return password;
 }
-
 // Get references to the #generate element
-var generateBtn = document.querySelector('#generate');
+var generateBtn = document.querySelector('#generate');;
 
 // Write password to the #password input
-function writePassword() {
+function writePassword () {
   var password = generatePassword();
-  var passwordText = document.querySelector('#password');
+  var passwordText = document.querySelector ('#password');
 
-  passwordText.value = password;
+  if (password) {
+    passwordText.value = password;
+  }
 }
 
-// Add an event listener to the generate button
+// Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);

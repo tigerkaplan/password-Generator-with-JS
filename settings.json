@@ -1,0 +1,37 @@
+{
+    "[python]": {
+        "editor.formatOnType": true
+    },
+    "workbench.startupEditor": "none",
+    "workbench.view.alwaysShowHeaderActions": true,
+    "notebook.lineNumbers": "on",
+    "editor.tabSize": 2,
+    "editor.autoClosingBrackets": "always",
+    "editor.accessibilityPageSize": 8,
+    "editor.fontLigatures": false,
+    "editor.fontWeight": "normal",
+    "screencastMode.fontSize": 30,
+    "debug.console.fontSize": 10,
+    "notebook.cellToolbarLocation": {
+        "default": "right",
+        "jupyter-notebook": "right"
+    },
+    "workbench.colorCustomizations": {},
+    "editor.linkedEditing": true,
+    "git.enableSmartCommit": true,
+    "files.autoSave": "afterDelay",
+    "workbench.iconTheme": "vscode-icons",
+    "editor.matchBrackets": "never",
+    "liveServer.settings.donotShowInfoMsg": true,
+    "window.zoomLevel": 1,
+    "gitlens.advanced.messages": {
+        "suppressLineUncommittedWarning": true
+    },
+    "workbench.activityBar.iconClickBehavior": "focus",
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
+}
